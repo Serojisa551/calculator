@@ -11,7 +11,7 @@ def sub(one_number, two_number):
 
 def mul(one_number, two_number):
     modul = one_number * two_number
-    return modul 
+    return modul
 
 
 def divide(one_number, two_number):
@@ -31,7 +31,7 @@ def degree(one_number, two_number):
 
 
 def percent(one_number, two_number):
-    modul = (two_number / 100) * one_number
+    modul = (two_number / one_number) * 100
     return modul
 
 
@@ -71,16 +71,17 @@ def mian():
     for symbols in task:
         if 48 <= ord(symbols) <= 57:
             pass
-        elif 43 == ord(symbols) or 45 == ord(symbols):
+        elif 43 == ord(symbols) or 45 == ord(symbols) or 46 == ord(symbols):
             pass
         elif 47 == ord(symbols) or 42 == ord(symbols):
             pass
         elif 33 == ord(symbols) or 37 == ord(symbols):
             pass
         else:
-            return print("Unidentified object '{}'".format(symbols))
+            return "Unidentified object '{}'".format(symbols)
     for symbol in task:
-        if 48 <= ord(symbol) <= 57:
+        if symbol in ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."):
+            print("two_number", two_number)
             one_number += symbol
             two_number += symbol
         else:
@@ -89,7 +90,7 @@ def mian():
             operator += symbol
     one_number = one_number[: one_number.index(" ")]
     if operator != "!":
-        two_number = two_number[two_number.index(" ") + 1 :]
+        two_number = two_number[two_number.index(" ") + 1:]
     one_number = float(one_number)
     two_number = float(two_number)
     if operator == "!":
@@ -97,5 +98,4 @@ def mian():
     print(calc(one_number, operator, two_number))
 
 
-if __name__ == "__main__":
-    mian()
+mian()
