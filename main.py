@@ -10,13 +10,26 @@ def main():
 
 
 def data_processing(task):
+    number_operators = 0
     if task == "":
         return "You haven't written anything"
+    elif task[0] in ("^-+*/%!"):
+        return "Аre you sure you haven't forgotten anything '{}'".format(task)
     for symbols in task:
-        if symbols in ("1234567890.-+*/%!"):
+        if symbols in ("1234567890.^-+*/%!"):
             pass
         else:
             return "Unidentified object '{}'".format(symbols)
+    for symbol in range(len(task)):
+        if task[symbol] in ("^-+*/%!"):
+            break
+    for index in range(len(task)):
+        if task[index] in ("^-+*/%!"):
+            number_operators += 1
+    if number_operators != 1:
+        return "You wrote the wrong number of operators '{}'".format(task)
+    elif symbol == len(task) - 1:
+        return "You haven't written enough '{}'".format(task)
     return tasks(task)
 
 
@@ -34,7 +47,7 @@ def tasks(task):
             operator += symbol
     one_number = one_number[: one_number.index(" ")]
     if operator != "!":
-        two_number = two_number[two_number.index(" ") + 1:]
+        two_number = two_number[two_number.index(" ") + 1 :]
 
     one_number = float(one_number)
     two_number = float(two_number)
