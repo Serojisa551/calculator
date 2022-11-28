@@ -29,7 +29,7 @@ def data_processing(task):
             number_operators += 1
     if number_operators != 1:
         return "You wrote the wrong number of operators '{}'".format(task)
-    elif symbol == len(task) - 1:
+    elif symbol == len(task) - 1 and task[symbol] != "!":
         return "You haven't written enough '{}'".format(task)
     return separation_elements(task)
 
