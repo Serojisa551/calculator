@@ -1,19 +1,18 @@
 # 5.Write a calculator on python.
-import clacul.define_operator
-import clacul.count_functions
+import calcu.define_operator
+import calcu.count_functions
 
 
 def main():
     task = input("input task...")
-    if data_processing(task) != None:
-        print(data_processing(task))
+    return data_processing(task)
 
 
 def data_processing(task):
     number_operators = 0
     if task == "":
         return "You haven't written anything"
-    elif task[0] in ("^-+*/%!"):
+    elif task[0] in ("^+*/%!"):
         return "Аre you sure you haven't forgotten anything '{}'".format(task)
     for symbols in task:
         if symbols in ("1234567890.^-+*/%!"):
@@ -23,6 +22,8 @@ def data_processing(task):
     for symbol in range(len(task)):
         if task[symbol] in ("^-+*/%!"):
             break
+    if task[0] == "-":
+        number_operators -= 1
     for index in range(len(task)):
         if task[index] in ("^-+*/%!"):
             number_operators += 1
@@ -30,13 +31,16 @@ def data_processing(task):
         return "You wrote the wrong number of operators '{}'".format(task)
     elif symbol == len(task) - 1:
         return "You haven't written enough '{}'".format(task)
-    return tasks(task)
+    return separation_elements(task)
 
 
-def tasks(task):
+def separation_elements(task):
     one_number = ""
     two_number = ""
     operator = ""
+    if task[0] == "-":
+        one_number = "-"
+        task = task[1:]
     for symbol in task:
         if symbol in ("0123456789."):
             one_number += symbol
@@ -53,8 +57,8 @@ def tasks(task):
     two_number = float(two_number)
     if operator == "!":
         one_number = int(one_number)
-    print(clacul.define_operator.calc(one_number, operator, two_number))
+    return calcu.define_operator.calc(one_number, operator, two_number)
 
 
 if __name__ == "__main__":
-    main()
+    print(main())
