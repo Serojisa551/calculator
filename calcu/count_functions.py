@@ -43,7 +43,7 @@ def factorial(one_number):
     modul = 1
     if one_number < 0:
         modul = "is important '{}!'".format(one_number)
-        return calcu.last_processing.last_processing(modul)
+        return modul
     if one_number == 0:
         modul = 1
         return calcu.last_processing.last_processing(modul)
