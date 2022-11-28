@@ -1,6 +1,6 @@
 def last_processing(number):
     if type(number) == str:
-        print(number)
+        return number
     else:
         if number % 1 == 0:
             number = int(number)
