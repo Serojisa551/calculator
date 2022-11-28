@@ -16,4 +16,3 @@ def calc(one_number, operator, two_number):
         return clacul.count_functions.percent(one_number, two_number)
     elif operator == "!":
         return clacul.count_functions.factorial(one_number)
-    
