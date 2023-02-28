@@ -39,21 +39,20 @@ def data_processing(task):
 def separation_elements(task):
     one_number = ""
     two_number = ""
+    number = ""
     operator = ""
     if task[0] == "-":
         one_number = "-"
         task = task[1:]
     for symbol in task:
         if symbol in ("0123456789."):
-            one_number += symbol
-            two_number += symbol
+            number += symbol
         else:
-            one_number += " "
-            two_number += " "
+            number += " "
             operator += symbol
-    one_number = one_number[: one_number.index(" ")]
+    one_number = number[: number.index(" ")]
     if operator != "!":
-        two_number = two_number[two_number.index(" ") + 1 :]
+        two_number = number[number.index(" ") + 1 :]
     if operator == "%":
         if one_number == "0":
             return "This is important, I do not divide it by zero"
