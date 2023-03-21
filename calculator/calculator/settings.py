@@ -49,10 +49,16 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     
 ]
+STATIC_ROOT = BASE_DIR / 'productionfiles'
 
+STATIC_URL = 'static/'
 ROOT_URLCONF = "calculator.urls"
+STATICFILES_DIRS = [
+    BASE_DIR / 'mystaticfiles'
+]
 
 TEMPLATES = [
     {

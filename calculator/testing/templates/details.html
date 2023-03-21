@@ -9,10 +9,18 @@
 </head>
 
 <body>
-    <h1>Member {{db.id}}</h1>
-    <p>{{db.name}}</p>
-    <p>Phone: {{db.phone}}</p>
-    <p>GO to  <a href="/testing">back</a></p>
+    {% extends "master.html" %}
+
+    {% block title %}
+        Details about {{ db.name }} {{ db.phone }}
+    {% endblock %}
+ 
+    {% block content %}
+        <h1>Member {{db.id}}</h1>
+        <p>{{db.name}}</p>
+        <p>Phone: {{db.phone}}</p>
+        <p>GO to <a href="/testing">back</a></p>
+    {% endblock %}
 </body>
 
 </html>

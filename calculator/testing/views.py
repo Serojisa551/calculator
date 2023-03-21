@@ -4,7 +4,7 @@ from .models import Testing
 
 
 def members(request):
-    members = Testing.objects.all().values()
+    members = Testing.objects.all()
     template = loader.get_template("for_in.html")
     context = {
         "db": members,
@@ -19,3 +19,7 @@ def details(request, id):
         "db": members,
     }
     return HttpResponse(template.render(context, request))
+
+def main(request):
+  template = loader.get_template('main.html')
+  return HttpResponse(template.render())
