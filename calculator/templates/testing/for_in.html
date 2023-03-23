@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% block content %}
+
+    <h1>Members</h1>
+    <ul>
+        {% for x in db%}
+        <li><a href="details/{{ x.slug }}">{{ x.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <p><a href="/">Go at HOME</a></p>
+
+    <!-- <table>
+        <tr>
+            <th>ID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        {% for x in db%}
+        <tr>
+            <td>{{ x.id }}</td>
+                <td>{{ x.name }}</td>
+            <td>{{ x.phone }}</td>
+        </tr>
+        {% endfor %} -->
+    </table>
+    {% endblock %}
+
+</body>
+
+</html>
