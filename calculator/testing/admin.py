@@ -6,5 +6,6 @@ from .models import Testing
 
 class MemberAdmin(admin.ModelAdmin):
   list_display = ("name", "phone")
+  prepopulated_fields = {"slug": ("name", "phone")}
 
 admin.site.register(Testing, MemberAdmin)

@@ -14,14 +14,14 @@
     {% block content %}
 
     <h1>Members</h1>
-    <!-- <ul>
-            {% for i in db%}
-            <li><a href="details/{{ i.id }}">{{ i.name }}</a></li>
+    <ul>
+            {% for x in db%}
+            <li><a href="details/{{ x.slug }}">{{ x.name }}</a></li>
             {% endfor %}
         </ul>
         <p><a href="/">Go at HOME</a></p>
-         -->
-    <table>
+        
+    <!-- <table>
         <tr>
             <th>ID</th>
             <th>Firstname</th>
@@ -33,7 +33,7 @@
                 <td>{{ x.name }}</td>
             <td>{{ x.phone }}</td>
         </tr>
-        {% endfor %}
+        {% endfor %} -->
     </table>    
             {% endblock %}
 
