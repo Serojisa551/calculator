@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "user",
     "testing",
+    "authentication",
     "bootstrap5",
 ]
 
